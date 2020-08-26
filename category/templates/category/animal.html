@@ -1,0 +1,32 @@
+{% extends 'category/base.html' %}
+
+{% block page_header %}
+  <h3>{{animal}}</h3>
+{% endblock page_header %}
+
+{% block content %}
+
+  <p>Animal: {{animal}}</p>
+  
+  <p>Descriptions:</p>
+  <p>
+    <a href="{% url 'category:new_description' animal.id %}">Add new description</a>
+  </p>
+  
+  {% for description in descriptions %}
+	<div class="card mb-3">
+	  <h4 class"card-header">
+	    {{ description.date_added|date:'M d, Y H:i' }}
+		<small><a href="{% url 'category:edit_description' description.id %}">
+		    edit description</a></small>
+      </h4>
+      <div class="card-body">
+		{{ description.text|linebreaks }}
+	  </div>
+	</div>
+  {% empty %}
+	<p>There are no descriptions for this animal yet.</p>
+  {% endfor %}
+ 
+  
+{% endblock content %}

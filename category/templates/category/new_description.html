@@ -1,0 +1,13 @@
+{% extends 'category/base.html' %}
+
+{% block content %}
+  <p><a href="{% url 'category:animal' animal.id %}">{{animal}}</a></p>
+  
+  <p>Add a new description:</p>
+  <form action="{% url 'category:new_description' animal.id %}" method='post'>
+    {% csrf_token %}
+	{{ form.as_p }}
+	<button name='submit'>Add description</button>
+  </form>
+  
+{% endblock content %}

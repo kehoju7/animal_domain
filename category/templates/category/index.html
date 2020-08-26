@@ -1,0 +1,14 @@
+{% extends "category/base.html" %}
+
+{% block page_header %}
+  <div class="jumbotron">
+    <h1 class="display-3">Do you know any animal?</h1>
+
+    <p class="lead">Describe your knowledge of Animal World. Give details of any animal we have on the planet earth. 
+	    This enables each user to describe some animals that are known to him.</p>
+		
+	<a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+	    role="button">Register &raquo;</a>
+  </div>		
+
+{% endblock page_header %}

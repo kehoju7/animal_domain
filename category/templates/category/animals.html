@@ -1,0 +1,19 @@
+{% extends "category/base.html" %}
+
+{% block page_header %}
+  <h1>Animals</h1>
+{% endblock page_header %}
+
+{% block content %}
+  <ul>
+    {% for animal in animals %}
+	  <li><h3>
+	    <a href="{% url 'category:animal' animal.id %}">{{animal}}</a>
+	  </h3></li>
+	{% empty %}
+	  <li><h3>No animals have been listed yet.</h3></li>
+	{% endfor %}
+  </ul>
+  
+  <h3><a href="{% url 'category:new_animal' %}">Add a new animal</a></h3>
+{% endblock content %}
